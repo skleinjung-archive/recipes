@@ -90,7 +90,7 @@ public class RecipeController {
     }
 
     @PostMapping
-    public void createRecipe(Recipe recipe) {
+    public void createRecipe(@RequestBody Recipe recipe) {
         System.out.println("recipe: " + recipe);
     }
 }

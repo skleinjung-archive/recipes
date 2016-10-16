@@ -3,7 +3,20 @@
 </div>
 
 <form ng-submit="submitForm()">
-    <strong>Name:</strong> <input type="text" name="name" ng-model="formData.name"/><br />
-    <strong>Description:</strong> <input type="text" name="description" ng-model="formData.description"/><br />
+    <strong>Name:</strong> <input type="text" name="name" ng-model="recipe.name"/><br />
+    <strong>Description:</strong> <input type="text" name="description" ng-model="recipe.description"/><br />
+
+    <strong>Instructions:</strong><br/>
+    <div ng-repeat="instruction in recipe.instructions" ng-init="formName = 'instruction[' + $index + ']'">
+        <textarea name="{{formName}}" ng-model="instruction.text"/>
+    </div>
+    <button type="button" ng-click="addInstruction()">Add Instruction</button>
+
+    <br/>
+    <br/>
     <button type="submit">Submit!</button>
 </form>
+
+<hr/>
+{{recipe}}
+<hr/>

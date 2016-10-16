@@ -27,4 +27,12 @@ public class Instruction {
     public void setText(String text) {
         this.text = text;
     }
+
+    @Override
+    public String toString() {
+        return "Instruction{" +
+                "id=" + id +
+                ", text='" + text + '\'' +
+                '}';
+    }
 }
