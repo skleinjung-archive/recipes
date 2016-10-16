@@ -152,4 +152,22 @@ public class Recipe {
     public String getSlug() {
         return slugify.slugify(getName());
     }
+
+    @Override
+    public String toString() {
+        return "Recipe{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", category=" + category +
+                ", tags=" + tags +
+                ", prepTime=" + prepTime +
+                ", cookTime=" + cookTime +
+                ", ingredients=" + ingredients +
+                ", equipment=" + equipment +
+                ", instructions=" + instructions +
+                ", source='" + source + '\'' +
+                ", sourceUrl='" + sourceUrl + '\'' +
+                '}';
+    }
 }

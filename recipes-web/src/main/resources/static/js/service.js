@@ -12,6 +12,15 @@ var RecipeService = angular.module('RecipeService', [])
         return $http.get(urlBase + '/recipes/' + recipeId);
     };
 
+    RecipeService.createRecipe = function(recipe) {
+       return $http({
+            method  :'POST',
+            url: urlBase + '/recipes',
+            data: $.param(recipe),                                          // pass in data as strings
+            headers :{'Content-Type':'application/x-www-form-urlencoded'}   // set the headers so angular passing info as form data (not request payload)
+        })
+    };
+
     return RecipeService;
 
 }]);

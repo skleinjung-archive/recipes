@@ -1,0 +1,9 @@
+<div ng-show="status">
+    {{status}}
+</div>
+
+<form ng-submit="submitForm()">
+    <strong>Name:</strong> <input type="text" name="name" ng-model="formData.name"/><br />
+    <strong>Description:</strong> <input type="text" name="description" ng-model="formData.description"/><br />
+    <button type="submit">Submit!</button>
+</form>

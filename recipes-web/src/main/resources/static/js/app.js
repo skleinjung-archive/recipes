@@ -16,6 +16,10 @@ app.config(function($routeProvider, $locationProvider) {
             templateUrl: 'partials/recipes/list.html',
             controller: 'RecipeListController',
         })
+        .when('/recipes/new', {
+            templateUrl: 'partials/recipes/create.html',
+            controller: 'RecipeCreateController',
+        })
         .when('/recipes/:recipeId/:slug', {
             templateUrl: 'partials/recipes/detail.html',
             controller: 'RecipeDetailsController',

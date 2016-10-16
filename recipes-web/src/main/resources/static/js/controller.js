@@ -40,3 +40,18 @@ app.controller('RecipeDetailsController', function($scope, $route, RecipeService
 
     //$scope.recipe = pageData;
 });
+
+app.controller('RecipeCreateController', function($scope, $http, RecipeService) {
+    $scope.formData = {};
+
+    $scope.submitForm = function() {
+        RecipeService.createRecipe($scope.formData)
+            .success(function(recipe) {
+                // $scope.recipe = recipe;
+            })
+            .error(function(error) {
+                $scope.status = "Unable to load recipe data: " + error.message;
+            });
+
+    };
+});

@@ -4,10 +4,7 @@ import com.thrashplay.recipes.model.Category;
 import com.thrashplay.recipes.model.Ingredient;
 import com.thrashplay.recipes.model.Instruction;
 import com.thrashplay.recipes.model.Recipe;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,5 +87,10 @@ public class RecipeController {
     @GetMapping("/{id}")
     public Recipe getById(@PathVariable int id) {
         return recipes.get(id - 1);
+    }
+
+    @PostMapping
+    public void createRecipe(Recipe recipe) {
+        System.out.println("recipe: " + recipe);
     }
 }
