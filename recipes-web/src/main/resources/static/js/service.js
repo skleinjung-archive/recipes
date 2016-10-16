@@ -1,7 +1,7 @@
 var RecipeService = angular.module('RecipeService', [])
-.service('RecipeService', ['$http', function ($http) {
+.service('RecipeService', ['$http', 'envService', function ($http, envService) {
 
-    var urlBase = 'http://localhost:8080/api';
+    var urlBase = envService.read('apiUrl');
     var RecipeService = {};
 
     RecipeService.getAllRecipes = function() {
