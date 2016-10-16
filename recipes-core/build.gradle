@@ -1,2 +1,6 @@
 version 'unspecified'
 
+dependencies {
+    compile group: 'com.github.slugify', name: 'slugify', version: '2.1.7'
+}
+
