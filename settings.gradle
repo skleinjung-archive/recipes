@@ -1,0 +1,4 @@
+rootProject.name = 'recipes-parent'
+include 'recipes-core'
+include 'recipes-web'
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/recipes-core/recipes-core.iml" filepath="$PROJECT_DIR$/.idea/modules/recipes-core/recipes-core.iml" group="recipes-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/recipes-core/recipes-core_main.iml" filepath="$PROJECT_DIR$/.idea/modules/recipes-core/recipes-core_main.iml" group="recipes-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/recipes-core/recipes-core_test.iml" filepath="$PROJECT_DIR$/.idea/modules/recipes-core/recipes-core_test.iml" group="recipes-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/recipes-parent.iml" filepath="$PROJECT_DIR$/.idea/modules/recipes-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/recipes-web/recipes-web.iml" filepath="$PROJECT_DIR$/.idea/modules/recipes-web/recipes-web.iml" group="recipes-web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/recipes-web/recipes-web_main.iml" filepath="$PROJECT_DIR$/.idea/modules/recipes-web/recipes-web_main.iml" group="recipes-web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/recipes-web/recipes-web_test.iml" filepath="$PROJECT_DIR$/.idea/modules/recipes-web/recipes-web_test.iml" group="recipes-web" />
+    </modules>
+  </component>
+</project>
