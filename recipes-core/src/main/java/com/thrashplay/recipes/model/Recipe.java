@@ -19,6 +19,9 @@ public class Recipe {
     // the name of the recipe
     private String name;
 
+    // the description of thsi recipe
+    private String description;
+
     // the category of recipe
     private Category category;
 
@@ -64,6 +67,14 @@ public class Recipe {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Category getCategory() {

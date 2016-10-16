@@ -12,8 +12,8 @@ public class Ingredient {
     // the quantity of this ingredient needed
     private String quantity;
 
-    // the unit to use when interpreting the quantity
-    private String unit;
+    // the units to use when interpreting the quantity
+    private String units;
 
     // the name of the ingredient
     private String name;
@@ -34,12 +34,12 @@ public class Ingredient {
         this.quantity = quantity;
     }
 
-    public String getUnit() {
-        return unit;
+    public String getUnits() {
+        return units;
     }
 
-    public void setUnit(String unit) {
-        this.unit = unit;
+    public void setUnits(String units) {
+        this.units = units;
     }
 
     public String getName() {

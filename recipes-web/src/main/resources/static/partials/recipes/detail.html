@@ -1,0 +1,37 @@
+<strong>Name:</strong> {{recipe.name}}<br />
+<strong>Category:</strong> {{recipe.category}}<br />
+
+<strong>Tags:</strong>
+<ul ng-repeat="tag in recipe.tags">
+    <li>{{tag.name}}</li>
+</ul>
+</br>
+
+<strong>Prep Time:</strong> {{recipe.prepTime}} minutes</br>
+<strong>Cook Time:</strong> {{recipe.cookTime}} minutes</br>
+
+<strong>Ingredients:</strong>
+<ul ng-repeat="ingredient in recipe.ingredients">
+    <li>{{ingredient.quantity}} {{ingredient.units}} {{ingredient.name}}</li>
+</ul>
+
+</br>
+
+<strong>Equipment:</strong>
+<ul ng-repeat="equipment in recipe.equipment">
+    <li>{{equipment.name}}</li>
+</ul>
+</br>
+
+<strong>Instructions:</strong>
+<ul ng-repeat="instruction in recipe.instructions">
+    <li>{{instruction.text}}</li>
+</ul>
+
+</br>
+
+<strong>Source:</strong> <a href="{{recipe.sourceUrl}}">{{recipe.source}}</a></br>
+
+<hr/>
+
+<a href="/recipes">Back to all recipes</a>

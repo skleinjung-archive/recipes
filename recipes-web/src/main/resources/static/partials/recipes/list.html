@@ -1,0 +1,5 @@
+<div ng-controller="RecipesListController">
+    <ul ng-repeat="recipe in recipes">
+        <li><a href="/recipes/{{recipe.id}}/{{recipe.slug}}">{{recipe.name}}</a></li>
+    </ul>
+</div>

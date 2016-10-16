@@ -23,6 +23,30 @@ public class RecipeController {
 
     private static List<Recipe> recipes = new ArrayList<Recipe>(2);
     static {
+        recipes.add(createTacoLimeGrilledChicken());
+        recipes.add(create2IngredientSlowCookerChickenSalsa());
+    }
+
+    private static Recipe create2IngredientSlowCookerChickenSalsa() {
+        Recipe recipe = new Recipe();
+        recipe.setId(2);
+        recipe.setName("2-INGREDIENT SLOW COOKER SALSA CHICKEN");
+        recipe.setCategory(Category.Appetizer);
+        recipe.setCookTime(240);
+        recipe.setPrepTime(1);
+
+        recipe.getIngredients().add(makeIngredient(4, "2", "cup", "favorite salsa"));
+        recipe.getIngredients().add(makeIngredient(5, "2", "lbs", "boneless and skinless chicken breasts"));
+
+        recipe.getInstructions().add(makeInstruction(3, "Place chicken breasts in a slow cooker and cover with salsa. Toss until the chicken is covered."));
+        recipe.getInstructions().add(makeInstruction(4, "Cover and cook on high for 4 hours (or low for 6-8 hours), or until the chicken shreds easily with a fork. Shred the chicken in the slow cooker and toss with the remaining salsa and juices until well-mixed. Serve immediately, or refrigerate in an airtight container for up to 5 days. (This chicken also freezes well.)"));
+
+        recipe.setSource("Gimme Some Oven");
+        recipe.setSourceUrl("http://www.gimmesomeoven.com/2-ingredient-slow-cooker-salsa-chicken-recipe/");
+        return recipe;
+    }
+
+    private static Recipe createTacoLimeGrilledChicken() {
         Recipe recipe = new Recipe();
         recipe.setId(1);
         recipe.setName("Taco Lime Grilled Chicken");
@@ -39,15 +63,14 @@ public class RecipeController {
 
         recipe.setSource("Closet Cooking");
         recipe.setSourceUrl("http://www.closetcooking.com/2015/09/taco-lime-grilled-chicken.html");
-
-        recipes.add(recipe);
+        return recipe;
     }
 
     private static Ingredient makeIngredient(int id, String quantity, String units, String name) {
         Ingredient ingredient = new Ingredient();
         ingredient.setId(id);
         ingredient.setQuantity(quantity);
-        ingredient.setUnit(units);
+        ingredient.setUnits(units);
         ingredient.setName(name);
         return ingredient;
     }
