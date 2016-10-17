@@ -27,11 +27,12 @@
     </div>
         <label>Instructions:</label><br/>
 
-        <div ng-repeat="instruction in recipe.instructions" ng-init="fieldId = 'instruction[' + $index + ']'">
+        <div ng-repeat="(i, instruction) in recipe.instructions" ng-init="fieldId = 'instruction[' + $index + ']'">
             <div ng-class="{ 'has-error' : errors['instructions[' + $index + '].text'] }">
-                {{$index}}
                 <textarea id="{{fieldId}}" name="instructions.text" ng-model="instruction.text"/>
                 <span ng-show="errors['instructions[' + $index + '].text']">{{errors['instructions[' + $index + '].text']}}</span>
+                <br />
+                <button type="button" ng-click="removeInstruction(i)">Remove Instruction</button>
                 <br />
             </div>
         </div>

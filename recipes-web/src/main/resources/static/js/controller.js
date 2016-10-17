@@ -62,4 +62,8 @@ app.controller('RecipeCreateController', function($scope, $http, RecipeService) 
     $scope.addInstruction = function() {
         $scope.recipe.instructions.push({text: ''});
     }
+
+    $scope.removeInstruction = function(index) {
+        $scope.recipe.instructions.splice(index, 1);
+    }
 });
