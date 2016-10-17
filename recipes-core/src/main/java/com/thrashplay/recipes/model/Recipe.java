@@ -2,6 +2,7 @@ package com.thrashplay.recipes.model;
 
 import com.github.slugify.Slugify;
 
+import javax.validation.constraints.NotNull;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,9 +18,11 @@ public class Recipe {
     private long id;
 
     // the name of the recipe
+    @NotNull
     private String name;
 
-    // the description of thsi recipe
+    // the description of this recipe
+    @NotNull
     private String description;
 
     // the category of recipe

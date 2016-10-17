@@ -13,11 +13,7 @@ var RecipeService = angular.module('RecipeService', [])
     };
 
     RecipeService.createRecipe = function(recipe) {
-        return $http({
-            method  :'POST',
-            url: urlBase + '/recipes',
-            data: angular.toJson(recipe)
-        });
+        return $http.post(urlBase + '/recipes', recipe);
     };
 
     return RecipeService;

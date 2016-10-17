@@ -47,11 +47,15 @@ app.controller('RecipeCreateController', function($scope, $http, RecipeService) 
 
     $scope.submitForm = function() {
         RecipeService.createRecipe($scope.recipe)
-            .success(function(recipe) {
-                // $scope.recipe = recipe;
+            .success(function(result) {
+                if (!result.success) {
+                    $scope.staus = "Please fix the indicated errors and try again.";
+                    $scope.errors = result.errors;
+                }
             })
-            .error(function(error) {
-                $scope.status = "Unable to load recipe data: " + error.message;
+            .error(function(result) {
+                $scope.staus = "Please fix the indicated errors and try again.";
+                $scope.errors = result.errors;
             });
     };
 

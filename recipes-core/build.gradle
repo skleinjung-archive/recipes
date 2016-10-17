@@ -2,5 +2,9 @@ version 'unspecified'
 
 dependencies {
     compile group: 'com.github.slugify', name: 'slugify', version: '2.1.7'
+
+    // validation
+    compile group: 'javax.validation', name: 'validation-api', version: '1.0.0.GA'
+    compile group: 'org.hibernate', name: 'hibernate-validator', version: '4.2.0.Final'
 }
 

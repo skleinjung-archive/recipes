@@ -4,8 +4,12 @@ import com.thrashplay.recipes.model.Category;
 import com.thrashplay.recipes.model.Ingredient;
 import com.thrashplay.recipes.model.Instruction;
 import com.thrashplay.recipes.model.Recipe;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +21,9 @@ import java.util.List;
 @RestController()
 @RequestMapping("/api/recipes")
 public class RecipeController {
+
+    @Autowired
+    private Validator validator;
 
     private static List<Recipe> recipes = new ArrayList<Recipe>(2);
     static {
@@ -90,7 +97,12 @@ public class RecipeController {
     }
 
     @PostMapping
-    public void createRecipe(@RequestBody Recipe recipe) {
-        System.out.println("recipe: " + recipe);
+    public void createRecipe(@Valid @RequestBody Recipe recipe, BindingResult bindingResult) {
+        if (!bindingResult.hasErrors()) {
+            // save
+            System.out.println("recipe: " + recipe);
+        } else {
+            throw new ValidationFailedException("Please correct the following errors and try again.", bindingResult);
+        }
     }
 }

@@ -14,7 +14,8 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan(basePackageClasses = {
     com.thrashplay.recipes.app.PackageLocator.class,
-    com.thrashplay.recipes.controller.PackageLocator.class
+    com.thrashplay.recipes.controller.PackageLocator.class,
+    com.thrashplay.recipes.web.PackageLocator.class
 })
 public class RecipesApplication extends SpringBootServletInitializer {
     @Override

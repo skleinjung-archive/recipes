@@ -1,4 +1,4 @@
-package com.thrashplay.recipes.app;
+package com.thrashplay.recipes.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.ResourceProperties;
