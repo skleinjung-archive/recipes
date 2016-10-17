@@ -1,5 +1,5 @@
 <style type="text/css">
-    .has-error input {
+    .has-error input, .has-error textarea {
         background-color: #FF9494;
     }
     .has-error span {
@@ -20,15 +20,20 @@
     </div>
     <div ng-class="{ 'has-error' : errors.description }">
         <label>Description:</label> <input type="text" name="description" ng-model="recipe.description"/>
-        <span ng-show="errors.name">{{errors.description}}</span>
+        <span ng-show="errors.description">{{errors.description}}</span>
         <br />
     </div>
 
     </div>
         <label>Instructions:</label><br/>
 
-        <div ng-repeat="instruction in recipe.instructions" ng-init="formName = 'instruction[' + $index + ']'">
-            <textarea name="{{formName}}" ng-model="instruction.text"/>
+        <div ng-repeat="instruction in recipe.instructions" ng-init="fieldId = 'instruction[' + $index + ']'">
+            <div ng-class="{ 'has-error' : errors['instructions[' + $index + '].text'] }">
+                {{$index}}
+                <textarea id="{{fieldId}}" name="instructions.text" ng-model="instruction.text"/>
+                <span ng-show="errors['instructions[' + $index + '].text']">{{errors['instructions[' + $index + '].text']}}</span>
+                <br />
+            </div>
         </div>
         <button type="button" ng-click="addInstruction()">Add Instruction</button>
     </div>

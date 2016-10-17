@@ -1,5 +1,7 @@
 package com.thrashplay.recipes.model;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 /**
  * Model class representing a step in the recipe instructions.
  *
@@ -10,6 +12,7 @@ public class Instruction {
     private long id;
 
     // the text of the instruction
+    @NotBlank
     private String text;
 
     public long getId() {

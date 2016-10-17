@@ -1,8 +1,9 @@
 package com.thrashplay.recipes.model;
 
 import com.github.slugify.Slugify;
+import org.hibernate.validator.constraints.NotBlank;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.Valid;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,11 +19,11 @@ public class Recipe {
     private long id;
 
     // the name of the recipe
-    @NotNull
+    @NotBlank
     private String name;
 
     // the description of this recipe
-    @NotNull
+    @NotBlank
     private String description;
 
     // the category of recipe
@@ -44,6 +45,7 @@ public class Recipe {
     private List<Equipment> equipment = new LinkedList<Equipment>();
 
     // instructions
+    @Valid
     private List<Instruction> instructions = new LinkedList<Instruction>();
 
     // the source of this recipe
