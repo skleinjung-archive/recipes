@@ -60,6 +60,35 @@
         <br />
     </div>
 
+    <br />
+
+    </div>
+    <label>Ingredients:</label><br/>
+    <div ng-repeat="(i, ingredient) in recipe.ingredients">
+        <div ng-class="{ 'has-error' : errors['ingredients[' + $index + '].quantity'] }">
+            <label>Quantity:</label> <textarea name="ingredient.quantity" ng-model="ingredient.quantity"></textarea>
+            <span ng-show="errors['ingredients[' + $index + '].quantity']">{{errors['ingredients[' + $index + '].quantity']}}</span>
+        </div>
+
+        <div ng-class="{ 'has-error' : errors['ingredients[' + $index + '].units'] }">
+            <label>Units:</label> <textarea `="ingredient.units" ng-model="ingredient.units"></textarea>
+            <span ng-show="errors['ingredients[' + $index + '].units']">{{errors['ingredients[' + $index + '].units']}}</span>
+        </div>
+
+        <div ng-class="{ 'has-error' : errors['ingredients[' + $index + '].name'] }">
+            <label>Name:</label> <textarea name="ingredient.name" ng-model="ingredient.name"></textarea>
+            <span ng-show="errors['ingredients[' + $index + '].name']">{{errors['ingredients[' + $index + '].name']}}</span>
+        </div>
+
+        <br />
+        <button type="button" ng-click="removeIngredient(i)">Remove Ingredient</button>
+        <br />
+    </div>
+    <button type="button" ng-click="addIngredient()">Add Ingredient</button>
+    </div>
+
+    <br /><br />
+
     </div>
     <label>Equipment:</label><br/>
     <div ng-repeat="(i, equipment) in recipe.equipment">
@@ -74,7 +103,7 @@
     <button type="button" ng-click="addEquipment()">Add Equipment</button>
     </div>
 
-    <br />
+    <br /><br />
 
     </div>
     <label>Instructions:</label><br/>
@@ -89,6 +118,8 @@
     </div>
     <button type="button" ng-click="addInstruction()">Add Instruction</button>
     </div>
+
+    <br /><br />
 
     <div ng-class="{ 'has-error' : errors.source }">
         <label>Source:</label> <input type="text" name="source" ng-model="recipe.source"/>

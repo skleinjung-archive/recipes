@@ -10,7 +10,7 @@ import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -25,7 +25,7 @@ public class RecipeController {
     @Autowired
     private Validator validator;
 
-    private static List<Recipe> recipes = new ArrayList<Recipe>(2);
+    private static List<Recipe> recipes = new LinkedList<Recipe>();
     static {
         recipes.add(createTacoLimeGrilledChicken());
         recipes.add(create2IngredientSlowCookerChickenSalsa());
@@ -101,6 +101,8 @@ public class RecipeController {
         if (!bindingResult.hasErrors()) {
             // save
             System.out.println("recipe: " + recipe);
+            recipe.setId(recipes.size() + 1);
+            recipes.add(recipe);
         } else {
             throw new ValidationFailedException("Please correct the following errors and try again.", bindingResult);
         }

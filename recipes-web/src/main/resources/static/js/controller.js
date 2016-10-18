@@ -56,6 +56,14 @@ app.controller('RecipeCreateController', function($scope, $http, RecipeService) 
             });
     };
 
+    $scope.addIngredient = function() {
+        $scope.recipe.ingredients.push({text: ''});
+    };
+
+    $scope.removeIngredient = function(index) {
+        $scope.recipe.ingredients.splice(index, 1);
+    };
+
     $scope.addInstruction = function() {
         $scope.recipe.instructions.push({text: ''});
     };
@@ -86,6 +94,7 @@ app.controller('RecipeCreateController', function($scope, $http, RecipeService) 
 
     // initialize recipe form
     $scope.recipe = {};
+    $scope.recipe.ingredients = [];
     $scope.recipe.instructions = [];
     $scope.recipe.equipment = [];
 });

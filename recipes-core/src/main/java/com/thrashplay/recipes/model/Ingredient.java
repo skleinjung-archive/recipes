@@ -1,5 +1,7 @@
 package com.thrashplay.recipes.model;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 /**
  * Model class representing a recipe ingredient.
  *
@@ -10,12 +12,15 @@ public class Ingredient {
     private long id;
 
     // the quantity of this ingredient needed
+    @NotBlank
     private String quantity;
 
     // the units to use when interpreting the quantity
+    @NotBlank
     private String units;
 
     // the name of the ingredient
+    @NotBlank
     private String name;
 
     public long getId() {
@@ -48,5 +53,15 @@ public class Ingredient {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Ingredient{" +
+                "id=" + id +
+                ", quantity='" + quantity + '\'' +
+                ", units='" + units + '\'' +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
