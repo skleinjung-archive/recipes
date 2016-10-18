@@ -16,6 +16,12 @@ var RecipeService = angular.module('RecipeService', [])
         return $http.post(urlBase + '/recipes', recipe);
     };
 
+    // reference data
+
+    RecipeService.getCategories = function() {
+        return $http.get(urlBase + '/categories');
+    };
+
     return RecipeService;
 
 }]);

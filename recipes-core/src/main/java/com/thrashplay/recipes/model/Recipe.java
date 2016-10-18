@@ -4,6 +4,8 @@ import com.github.slugify.Slugify;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -27,21 +29,26 @@ public class Recipe {
     private String description;
 
     // the category of recipe
+    @NotNull
     private Category category;
 
     // tags associated with this recipe
     private List<Tag> tags = new LinkedList<Tag>();
 
     // the prep time, in minutes
+    @Min(0)
     private int prepTime;
 
     // the cook time, in minutes
+    @Min(0)
     private int cookTime;
 
     // ingredients
+    @Valid
     private List<Ingredient> ingredients = new LinkedList<Ingredient>();
 
     // equipment
+    @Valid
     private List<Equipment> equipment = new LinkedList<Equipment>();
 
     // instructions
@@ -51,7 +58,7 @@ public class Recipe {
     // the source of this recipe
     private String source;
 
-    // the URL of the recipe source, if one exists
+    // the URL of the recipe source, if one exists\
     private String sourceUrl;
 
     // main image

@@ -1,5 +1,7 @@
 package com.thrashplay.recipes.model;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 /**
  * Model class representing equipment needed to make a recipe.
  *
@@ -9,8 +11,9 @@ public class Equipment {
     // the ingredient ID
     private long id;
 
-    // the name of the ingredient
-    private String name;
+    // the description of the equipment
+    @NotBlank
+    private String description;
 
     public long getId() {
         return id;
@@ -20,11 +23,19 @@ public class Equipment {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Equipment{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

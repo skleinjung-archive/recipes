@@ -1,5 +1,5 @@
 <style type="text/css">
-    .has-error input, .has-error textarea {
+    .has-error input, .has-error textarea, .has-error select {
         background-color: #FF9494;
     }
     .has-error span {
@@ -12,31 +12,94 @@
     {{status}}
 </div>
 
+<div>
+    <ul>
+        <li ng-repeat="error in errors">
+            {{error}}
+        </li>
+    </ul>
+</div>
+
 <form ng-submit="submitForm()">
     <div ng-class="{ 'has-error' : errors.name }">
         <label>Name:</label> <input type="text" name="name" ng-model="recipe.name"/>
         <span ng-show="errors.name">{{errors.name}}</span>
         <br />
     </div>
+
     <div ng-class="{ 'has-error' : errors.description }">
         <label>Description:</label> <input type="text" name="description" ng-model="recipe.description"/>
         <span ng-show="errors.description">{{errors.description}}</span>
         <br />
     </div>
 
+    <div ng-class="{ 'has-error' : errors.category }">
+        <label>Category</label>
+        <select ng-model="recipe.category">
+            <option ng-repeat="category in categories" value="{{category.id}}" label="{{category.name}}">{{category.name}}</option>
+        </select>
+        <span ng-show="errors.category">{{errors.category}}</span>
+        <br />
     </div>
-        <label>Instructions:</label><br/>
 
-        <div ng-repeat="(i, instruction) in recipe.instructions" ng-init="fieldId = 'instruction[' + $index + ']'">
-            <div ng-class="{ 'has-error' : errors['instructions[' + $index + '].text'] }">
-                <textarea id="{{fieldId}}" name="instructions.text" ng-model="instruction.text"/>
-                <span ng-show="errors['instructions[' + $index + '].text']">{{errors['instructions[' + $index + '].text']}}</span>
-                <br />
-                <button type="button" ng-click="removeInstruction(i)">Remove Instruction</button>
-                <br />
-            </div>
+    <div ng-class="{ 'has-error' : errors.tags }">
+        <label>Tags:</label> <input type="text" name="tags" ng-model="recipe.tags"/>
+        <span ng-show="errors.description">{{errors.tags}}</span>
+        <br />
+    </div>
+
+    <div ng-class="{ 'has-error' : errors.prepTime }">
+        <label>Prep Time:</label> <input type="text" name="prepTime" ng-model="recipe.prepTime"/> minutes
+        <span ng-show="errors.prepTime">{{errors.prepTime}}</span>
+        <br />
+    </div>
+
+    <div ng-class="{ 'has-error' : errors.cookTime }">
+        <label>Cook Time:</label> <input type="text" name="cookTime" ng-model="recipe.cookTime"/> minutes
+        <span ng-show="errors.cookTime">{{errors.cookTime}}</span>
+        <br />
+    </div>
+
+    </div>
+    <label>Equipment:</label><br/>
+    <div ng-repeat="(i, equipment) in recipe.equipment">
+        <div ng-class="{ 'has-error' : errors['equipment[' + $index + '].description'] }">
+            <textarea name="equipment.description" ng-model="equipment.description"></textarea>
+            <span ng-show="errors['equipment[' + $index + '].description']">{{errors['equipment[' + $index + '].description']}}</span>
+            <br />
+            <button type="button" ng-click="removeEquipment(i)">Remove Equipment</button>
+            <br />
         </div>
-        <button type="button" ng-click="addInstruction()">Add Instruction</button>
+    </div>
+    <button type="button" ng-click="addEquipment()">Add Equipment</button>
+    </div>
+
+    <br />
+
+    </div>
+    <label>Instructions:</label><br/>
+    <div ng-repeat="(i, instruction) in recipe.instructions">
+        <div ng-class="{ 'has-error' : errors['instructions[' + $index + '].text'] }">
+            <textarea name="instructions.text" ng-model="instruction.text"></textarea>
+            <span ng-show="errors['instructions[' + $index + '].text']">{{errors['instructions[' + $index + '].text']}}</span>
+            <br />
+            <button type="button" ng-click="removeInstruction(i)">Remove Instruction</button>
+            <br />
+        </div>
+    </div>
+    <button type="button" ng-click="addInstruction()">Add Instruction</button>
+    </div>
+
+    <div ng-class="{ 'has-error' : errors.source }">
+        <label>Source:</label> <input type="text" name="source" ng-model="recipe.source"/>
+        <span ng-show="errors.source">{{errors.source}}</span>
+        <br />
+    </div>
+
+    <div ng-class="{ 'has-error' : errors.sourceUrl }">
+        <label>Source URL:</label> <input type="text" name="sourceUrl" ng-model="recipe.sourceUrl"/>
+        <span ng-show="errors.sourceUrl">{{errors.sourceUrl}}</span>
+        <br />
     </div>
 
     <br/>
